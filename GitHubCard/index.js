@@ -3,6 +3,10 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+import axios from 'axios';
+const axiosData = axios.get('https://api.github.com/users/jacobstephens17');
+
+console.log(axiosData)
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -49,7 +53,19 @@ const followersArray = [];
       </div>
     </div>
 */
-
+const cardMaker = function(obj){
+  const card = document.querySelector('.card');
+  const image = document.querySelector('img');
+  const cardInfo = document.querySelector('div');
+  const name = document.querySelector('h3');
+  const userName = document.querySelector('p');
+  const location = document.querySelector('p');
+  const profile = document.querySelector('p');
+  const profileAddress = document.querySelector('a');
+  const followers = document.querySelector('{followers}');
+  const following = document.querySelector('{following}');
+  const bio = document.querySelector('{bio}')
+}
 /*
   List of LS Instructors Github username's:
     tetondan
