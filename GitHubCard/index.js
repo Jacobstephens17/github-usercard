@@ -66,24 +66,27 @@ Using DOM methods and properties, create and return the following markup:
 </div>
 */
 function cardMaker (obj){
-  const card = document.querySelector('div');
-  const profilePic = document.querySelector('img');
-  const cardInfo = document.querySelector('div');
-  const name = document.querySelector('h3');
-  const userName = document.querySelector('p');
-  const location = document.querySelector('p');
-  const profile = document.querySelector('p');
-  const profileAddress = document.querySelector('a');
-  const followers = document.querySelector('p');
-  const following = document.querySelector('p');
-  const bio = document.querySelector('p')
+  const card = document.createElement('div');
+  const profilePic = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const name = document.createElement('h3');
+  const userName = document.createElement('p');
+  const location = document.createElement('p');
+  const profile = document.createElement('p');
+  const profileAddress = document.createElement('a');
+  const followers = document.createElement('p');
+  const following = document.createElement('p');
+  const bio = document.createElement('p');
   
-  profilePic.src = `imageURL: ${obj.data.avatar_url}`;
-  name.textContent = `Name: ${obj.data.name}`;
+  console.log(profilePic)
+
+
+  profilePic.src = obj.avatar_url;
+  name.textContent = obj.data.name;
   userName.textContent = obj.data.login;
   location.textContent = `Location: ${obj.data.location}`;
   profile.textContent = "Profile:";
-  profileLink.href = obj.data.html_url;
+  profileLink.textContent = obj.data.html_url;
   followers.textContent = `Followers: ${obj.data.followers}`;
   following.textContent = `Following: ${obj.data.following}`;
   bio.textContent = `Bio: ${obj.data.bio}`;
@@ -104,7 +107,7 @@ function cardMaker (obj){
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
   
-  return card
+  return card;
 } 
 /*
 List of LS Instructors Github username's:
