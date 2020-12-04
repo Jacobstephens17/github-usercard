@@ -1,11 +1,12 @@
 /*
-  STEP 1: using axios, send a GET request to the following URL
-    (replacing the placeholder with your Github name):
-    https://api.github.com/users/<your name>
+STEP 1: using axios, send a GET request to the following URL
+(replacing the placeholder with your Github name):
+https://api.github.com/users/<your name>
 */
 import axios from 'axios';
 const axiosData = axios.get('https://api.github.com/users/jacobstephens17');
 console.log(axiosData)
+const entry = document.querySelector('.card');
 
 /*
 STEP 2: Inspect and study the data coming back, this is YOUR
@@ -65,8 +66,8 @@ function cardMaker (obj){
   const following = document.querySelector('p');
   const bio = document.querySelector('p')
   
-  profilePic.src = obj.data.avatar_url;
-  name.textContent = obj.data.name;
+  profilePic.href = obj.data.avatar_url;
+  name.textContent = `Name: ${obj.data.name}`;
   userName.textContent = obj.data.login;
   location.textContent = `Location: ${obj.data.location}`;
   profile.textContent = "Profile:";
@@ -101,13 +102,12 @@ justsml
 luishrd
 bigknell
 */
-const entry = document.querySelector('.card');
 
 axios
 .get('https://api.github.com/users/jacobstephens17')
 .then((res) =>{
-  const accData = res.data
-  const newUsers = cardMaker(res);
-  entry.append(newUsers);    
+  const dataRec = res.data;
+  const newUsers = cardMaker(dataRec);
+  entry.appendChild(newUsers); 
 })
 
