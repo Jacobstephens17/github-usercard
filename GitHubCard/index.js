@@ -6,7 +6,9 @@ https://api.github.com/users/<your name>
 import axios from 'axios';
 const axiosData = axios.get('https://api.github.com/users/jacobstephens17');
 
-const entryPoint = document.querySelectorAll('.cards');
+const entryPoint = document.querySelector('.cards');
+
+console.log(axiosData)
 
 /*
 STEP 2: Inspect and study the data coming back, this is YOUR
@@ -39,7 +41,7 @@ followersArray.forEach((item) =>{
     .get('https://api.github.com/users/' + item)
     .then(res =>{
       newOne = cardMaker(res.data);
-      entry.appendChild(newOne);
+      entryPoint.appendChild(newOne);
     })
 
 })
@@ -76,7 +78,7 @@ function cardMaker (obj){
   const following = document.querySelector('p');
   const bio = document.querySelector('p')
   
-  profilePic.href = obj.data.avatar_url;
+  profilePic.src = `imageURL: ${obj.data.avatar_url}`;
   name.textContent = `Name: ${obj.data.name}`;
   userName.textContent = obj.data.login;
   location.textContent = `Location: ${obj.data.location}`;
@@ -118,7 +120,7 @@ axios
       .then((res) =>{
       const dataRec = res.data;
       const newUsers = cardMaker(dataRec);
-      entry.appendChild(newUsers);    
+      entryPoint.appendChild(newUsers);    
 });
 
 
